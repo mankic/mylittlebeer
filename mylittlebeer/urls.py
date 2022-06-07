@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recommend.urls')),
     path('', include('history.urls')),
-
+    path('', include('beer.urls')),
 ]
