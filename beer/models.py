@@ -15,4 +15,4 @@ class Beer(models.Model):
     paring_food = models.TextField(default='')
     body = models.TextField(default='')
     rating = models.FloatField(default=0.0)
-    img_url = models.TextField(default='')
+    img_url = models.ImageField(default='')
