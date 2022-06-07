@@ -13,35 +13,52 @@
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- css, js -->
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
     <script defer src="{% static 'js/common.js' %}"></script>
     {% block link %}
     {% endblock link %}
 
-    <title>MyLittleBeer</title>
+    {% block title %}
+    {% endblock title %}
 </head>
-<body>
+<!-- 해더 -->
 <div class="header">
+    <!--    로고-->
     <div class="header_body">
-        <img
-                class="logo"
-                onclick="window.location.reload()"
-                src="{% static 'images/logo.png' %}"
-        />
+        <a href="/static"><img class="logo" src="{% static 'images/logo.png' %}"/></a>
+        <!--        타이틀-->
+        <div class="container">
+            <div class="neon">My Pick!</div>
+        </div>
+        <!--        유저정보-->
         <div class="user_info">
             <span style="font-weight: bold" id="user_name">김동우</span> <br/>
             <span id="user_email">kimphysicsman@gmail.com</span> <br/>
-            <button id="logout_btn" onclick="logout()">로그아웃</button>
+            <button id="logout_btn">로그아웃</button>
         </div>
     </div>
 </div>
 
+
+<body class="team_color">
+
+
 <div class="main_body">
+    {% block content %}
+    {% endblock content %}
 
 
 </div>
 
-{% block content %}
-{% endblock content %}
+
 </body>
 </html>

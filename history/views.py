@@ -5,4 +5,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def history_view(request):
-    return render(request, 'history.html')
+    return render(request, 'history/history.html')
