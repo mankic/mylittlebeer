@@ -1,28 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>rating</title>
     <link rel="stylesheet" href="../static/css/rating.css" />
+
+
+    <!-- 참조할 css, js -->
+    {% block link %}
+{#        <link rel="stylesheet" href="{% static 'css/rating.css' %}">#}
+    {% endblock link %}
+
+    <!-- 페이지별 타이틀 -->
+    {% block title %}
+    {% endblock title %}
+
 </head>
 <body>
-    <!-- 해더 -->
-    <div class="header">
-      <div class="header_body">
-{#        <img class="logo" onclick="window.location.reload()"#}
-{#          src="../static/images/logo.png"#}
-{#        />#}
-{#        <div class="user_info">#}
-{#          <span style="font-weight: bold" id="user_name">김동우</span> <br />#}
-{#          <span id="user_email">kimphysicsman@gmail.com</span> <br />#}
-{#          <button id="logout_btn" onclick="logout()">로그아웃</button>#}
-{#        </div>#}
-          <h1>rating page</h1>
-      </div>
-    </div>
-    <hr />
-    {% for beer in beers %}
-    <h2>{{ beer.name }} [{{ beer.rating }}]</h2>
-    {% endfor %}
+
+    {% block content %}
+        {% for beer in beers %}
+            <img src="{{ beer.img_url }}"/>
+            <h2>{{ beer.name }} [{{ beer.rating }}]</h2>
+        {% endfor %}
+    {% endblock content %}
+
 </body>
 </html>
