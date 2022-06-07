@@ -14,5 +14,5 @@ class Beer(models.Model):
     season = models.TextField(default='')
     paring_food = models.TextField(default='')
     body = models.TextField(default='')
-    rating = models.IntegerField(default=0)
+    rating = models.FloatField(default=0)
     img_url = models.TextField(default='')
