@@ -7,7 +7,6 @@ path = "templates/맥주_cbf_data.csv"
 file = open(path, encoding='UTF-8')
 reader = csv.reader(file)
 for i, row in enumerate(reader):
-    # beer_lists = []
     if i > 0:
         Beer.objects.create(
             name = row[3],
