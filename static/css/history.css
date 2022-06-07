@@ -108,9 +108,9 @@
 }
 /*카드내용*/
 
-*,
-*::after,
-*::before {
+.main_body *,
+.main_body *::after,
+.main_body *::before {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: inherit;

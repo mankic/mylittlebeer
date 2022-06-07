@@ -1,8 +1,7 @@
 * {
   font-family: "Nanum Gothic", sans-serif;
-font-size: 62.5%;
+    font-size: 62.5%;
 }
-
 
 .team_color {
   background-color: #F6CE2F;
@@ -10,10 +9,9 @@ font-size: 62.5%;
 
 .header {
     width: 100%;
-    height: 100px;
+    height: 110px;
 
     padding: 10px;
-    margin-left: -10px;
 
     box-shadow: 1px 1px 5px gray;
 
@@ -67,6 +65,9 @@ font-size: 62.5%;
 #logout_btn {
     margin: 5px 0px 10px 5px;
     padding: 5px;
+
+    border: 1px solid gray;
+    box-shadow: 1px 1px 5px lightgrey;
 }
 
 .blank {
@@ -109,3 +110,13 @@ font-size: 62.5%;
     }
 }
 
+.main_body {
+  width: 935px;
+  height: 10000px;
+
+  margin: 120px auto;
+
+  background-color: #fff0f0;
+  border: 1px solid #e8e8e8;
+  box-shadow: 1px 1px 5px gray;
+}
