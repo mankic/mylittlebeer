@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('recommend.urls')),
     path('', include('history.urls')),
     path('', include('beer.urls')),
+    path('', include('user.urls')),
 ]
