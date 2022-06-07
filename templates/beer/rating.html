@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rating</title>
+    <link rel="stylesheet" href="../static/css/rating.css" />
+</head>
+<body>
+    <!-- 해더 -->
+    <div class="header">
+      <div class="header_body">
+{#        <img class="logo" onclick="window.location.reload()"#}
+{#          src="../static/images/logo.png"#}
+{#        />#}
+{#        <div class="user_info">#}
+{#          <span style="font-weight: bold" id="user_name">김동우</span> <br />#}
+{#          <span id="user_email">kimphysicsman@gmail.com</span> <br />#}
+{#          <button id="logout_btn" onclick="logout()">로그아웃</button>#}
+{#        </div>#}
+          <h1>rating page</h1>
+      </div>
+    </div>
+    <hr />
+    {% for beer in beers %}
+    <h2>{{ beer.name }}</h2>
+    {% endfor %}
+</body>
+</html>
