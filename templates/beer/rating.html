@@ -5,28 +5,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>rating</title>
-    <link rel="stylesheet" href="../static/css/rating.css" />
-
 
     <!-- 참조할 css, js -->
     {% block link %}
-{#        <link rel="stylesheet" href="{% static 'css/rating.css' %}">#}
+        <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+        <script defer src="{% static 'js/rating.js' %}"></script>
     {% endblock link %}
 
     <!-- 페이지별 타이틀 -->
     {% block title %}
+        <title>MyLittleBeer</title>
     {% endblock title %}
 
 </head>
 <body>
+{% block content %}
+    <div class="cards">
+    {% for beer in beers %}
+        <div class="card">
+            <img src="{% get_static_prefix %}{{ beer.img_url }}" class="card__image" alt=""/>
+            <div class="card__overlay">
+                <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                        <path/>
+                    </svg>
+                    <span class="card__thumb" style="font-weight: bold;">{{ forloop.counter }}</span>
+                    <div class="card__header-text">
+                        <h3 class="card__title">{{ beer.name }}</h3>
+                        <span class="card__status">[{{ beer.rating|floatformat:2 }}]</span>
+                    </div>
+                </div>
+                <button id="modal_btn" class="card__description">comment</button>
+{#                    <button id="modal_btn" class="card__description"#}
+{#                            type="submit" value="{{ forloop.counter }}" name="beerindex">#}
+{#                        comment</button>#}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    {#모달#}
+    <div id="modal_open" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div style="font-size: 20px">Detailed information - 소감을 남겨주세요!</div>
+                <div class="modal_title_side">
+                    <button id="close_modal" class="material-icons-outlined" name="close_modal">
+                        close
+                    </button>
+                </div>
+            </div>
+            <hr/>
+            <br>
+            <div class="modal_body">
+                맥주정보
+            </div>
+            <div class="modal_comment">
+                comment
+            </div>
+        </div>
+    </div>
 
-    {% block content %}
-        {% for beer in beers %}
-            <img src="{{ beer.img_url }}"/>
-            <h2>{{ beer.name }} [{{ beer.rating }}]</h2>
-        {% endfor %}
-    {% endblock content %}
+{% endblock content %}
 
 </body>
 </html>
