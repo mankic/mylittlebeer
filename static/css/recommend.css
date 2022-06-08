@@ -1,0 +1,75 @@
+.recommend_message_box {
+    width: 100%;
+
+    padding: 50px;
+
+    text-align: center;
+    font-size: 15px;
+    color: #8e8e8e
+}
+
+.recommend_title {
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.feature_title {
+    font-size: 25px;
+    font-weight: 700;
+
+    margin-right: 20px;
+}
+
+.feature_title span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #8e8e8e;
+
+}
+
+.beer_style {
+    width: 100%;
+    padding: 20px 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: flex-start;
+}
+
+.feature_style {
+    font-size: 15px;
+    padding: 5px;
+
+    float: left;
+}
+
+.beer_aroma {
+    width: 100%;
+    padding: 20px 50px;
+}
+
+.beer_checkbox {
+    padding: 20px;
+}
+
+.beer_checkbox_row {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: flex-start;
+}
+
+.beer_checkbox_row div {
+    width: 20%;
+    height: 100%;
+    font-size: 15px;
+}
+
+.beer_checkbox_row div input {
+    margin-right: 5px;
+}
