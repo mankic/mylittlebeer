@@ -3,7 +3,10 @@ from .models import User
 from django.contrib.auth import get_user_model  # 사용자가 있는지 검사하는 함수
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-
+from django.db.models.deletion import Collector
+from django.db import (
+    router,
+)
 
 
 # Create your views here.
@@ -42,8 +45,8 @@ def sign_up_view(request):
 
 def sign_in_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username','')
-        password = request.POST.get('password','')
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
 
         me = auth.authenticate(request, username=username, password=password)
         if me is not None:
@@ -66,65 +69,48 @@ def logout(request):
     return redirect('/')
 
 
-# # users/views.py
-#
-# class CheckPasswordForm():
-#     if request.method == 'GET':
-#         user = request.user.is_authenticated
-#     password = form.CharField(label='비밀번호', widget=form.PasswordInput(
-#         attrs={'class': 'form-control', }),
-#                                )
-#
-#     def __init__(self, user, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.user = user
-#
-#     def clean(self):
-#         cleaned_data = super().clean()
-#         password = cleaned_data.get('password')
-#         confirm_password = self.user.password
-#
-#         if password:
-#             if not check_password(password, confirm_password):
-#                 self.add_error('password', '비밀번호가 일치하지 않습니다.')
-#
-#
-#
-#
-#
-# @login_message_required
-# def user_delete_view(request):
-#     if request.method == 'POST':
-#         password_form = CheckPasswordForm(request.user, request.POST)
-#
-#         if password_form.is_valid():
-#             request.user.delete()
-#             logout(request)
-#             messages.success(request, "회원탈퇴가 완료되었습니다.")
-#             return redirect('/users/login/')
-#     else:
-#         password_form = CheckPasswordForm(request.user)
-#
-#     return render(request, 'users/user_delete.html', {'password_form': password_form})
-#
-#
-
-# user/views.py
-
-# @login_required
-# def user_view(request):
-#     if request.method == 'GET':
-#         # 사용자를 불러오기, exclude와 request.user.username 를 사용해서 '로그인 한 사용자'를 제외하기
-#         user_list = User.objects.all().exclude(email=request.user.email)
-#         return render(request, 'user/user_list.html', {'user_list': user_list})
 
 
-# @login_required
-# def user_follow(request, id):
-#     me = request.user
-#     click_user = User.objects.get(id=id)
-#     if me in click_user.followee.all():
-#         click_user.followee.remove(request.user)
-#     else:
-#         click_user.followee.add(request.user)
-#     return redirect('/user')
+
+@login_required()
+def update_confirm(request):
+    if request.method == 'POST':
+        user = request.user
+        password = request.POST.get("password", "")
+        if user.check_password(password):
+            return render("/update")
+        else:
+            raise Exception("잘못된 비밀번호를 입력했습니다.")
+            return redirect('/update_confirm')
+
+@login_required()
+def delete_confirm(request):
+    if request.method == 'POST':
+        user = request.user
+        password = request.POST.get("password", "")
+        if user.check_password(password):
+            return render("/delete")
+        else:
+            raise Exception("잘못된 비밀번호를 입력했습니다.")
+            return redirect('/delete_confirm')
+
+@login_required()
+def update(request):
+    if request.method == 'POST':
+        user = request.user
+        username = request.POST.get("username,", "")
+        password = request.POST.get("password", "")
+        email = request.POST.get("email", "")
+
+        user.username = username
+        user.password = password
+        user.email = email
+        user.save()
+    return render("/")
+@login_required()
+def delete(request):
+    user = request.user
+    user.delete()
+    return redirect('/')
+
+

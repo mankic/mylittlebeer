@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}"/>
+    <script defer src="/static/js/history.js" type="text/javascript"></script>
+{% endblock link %}
+
+{% block title %}
+    <title>MyPick</title>
+{% endblock title %}
+
+{% block content %}
+    <!--user_update page-->
+<h1>User Edit</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {% bootstrap_form user_change_form %}
+    <input type="submit" value="Submit"/>
+</form>
+
+{% endblock content %}

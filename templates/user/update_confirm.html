@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends ' base.html' %}
 {% load static %}
 
 {% block link %}
@@ -12,8 +12,8 @@
 
 {% block content %}
     <!--user_delete page-->
-    <div class="register_div">
-        <a href="/static"><img class="logo logo_style" src="{% static 'images/logo.png' %}"/></a>
+<div class="register_div">
+      <a href="/static"><img class="logo logo_style" src="{% static 'images/logo.png' %}"/></a>
         <div class="register_form">
             <form class="form-area" method="post" action="/sign-in/">
                 {% csrf_token %}
@@ -23,7 +23,7 @@
                 </div>
                 <hr>
                 <div style="float: right">
-                    <button type="submit" class="btn btn-primary">회원탈퇴</button>
+                    <button type="submit" class="btn btn-primary">비밀번호 확인</button>
                 </div>
                 {% if error %}
                     <div class="alert alert-danger" role="alert">
