@@ -1,10 +1,10 @@
 * {
-  font-family: "Nanum Gothic", sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
     font-size: 62.5%;
 }
 
 .team_color {
-  background-color: #F6CE2F;
+    background-color: #F6CE2F;
 }
 
 .header {
@@ -71,8 +71,8 @@
 }
 
 .blank {
-  width: 100%;
-  height: 120px;
+    width: 100%;
+    height: 120px;
 }
 
 /*헤더 네온*/
@@ -111,12 +111,13 @@
 }
 
 .main_body {
-  width: 935px;
-  height: 10000px;
+    width: 935px;
+    height: auto;
 
-  margin: 120px auto;
+    margin: 120px auto;
 
-  background-color: #fff0f0;
-  border: 1px solid #e8e8e8;
-  box-shadow: 1px 1px 5px gray;
+    background-color: #fff0d0;
+    border: 1px solid #e8e8e8;
+    box-shadow: 1px 1px 5px gray;
 }
+
