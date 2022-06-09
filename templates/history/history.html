@@ -3,7 +3,7 @@
 
 {% block link %}
     <link rel="stylesheet" href="{% static 'css/history.css' %}"/>
-    <script defer src="/static/js/history.js" type="text/javascript"></script>
+    <script defer src="{% static 'js/history.js' %}" type="text/javascript"></script>
 {% endblock link %}
 
 {% block title %}
@@ -11,516 +11,83 @@
 {% endblock title %}
 
 {% block content %}
+
+
     <!--결과페이지-->
     <section>
+
         <div class="row">
+
             <div class="col-1-of-3">
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
+                {% for history in historys %}
+                    <div class="card">
+                        <div class="container">
+                            <!--카드 앞면-->
+                            <div class="front card"
+                                 style=" object-fit:cover; display: flex;
+                                 justify-content:center;
+                                width: 300px; height: 400px;">
+                                <img src="{% get_static_prefix %}{{ history.beer.img_url }}" alt="beer Image">
+                                <!--history db 안에 img_url이 없어서 안뜨는거였음-->
+                            </div>
+                            <!--모달창-->
+                            <div class="back card" style="width: 300px; height: 400px;">
+                                <button class="btn-open-popup">Delete</button>
+                                <div class="modal" id="modal_open">
+{#                                      {% if history.author == user %}#}
+                                    <div class="modal_body">
+                                        <div style=" font-size: 20px; padding-top: 10px;">
+                                            히스토리 삭제
+                                        </div>
+                                        <div class="modal_content"
+                                             style="font-size: 6px;
                                                 display: flex;
                                                 text-align: center;
                                                 padding-left: 65px;
                                                 padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
+                                            <h4>삭제 하시겠습니까?</h4>
+                                        </div>
+                                        <div class="btns"
+                                             style="display: flex;
                                             padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
+                                            <a href="/history/delete/{{ history.id }}">
+                                            <button class="delete_btn">삭제</button>
+                                            </a>
+                                            <button class="cancel_btn" id="close_modal" style="margin-left: 20px;
                                                 background-color: lightgray;
                                                 outline: 0;
                                                 border: 0;
                                                 width: 50px;
-                                                cursor: pointer;">취소</button>
+                                                cursor: pointer;">취소
+                                            </button>
+                                        </div>
                                     </div>
+{#                                    {% endif %}#}
+                                </div>
+                                <!--카드 뒷면-->
+                                <div class="card__title card__title--1">
+{#                                    <i class="fas fa-beer"></i>#}
+                                     <div class="card__heading">{{ history.beer.name }}</div>
+                                </div>
+                                <div class="card__details">
+                                    <ul>
+                                        <li>평점 : [{{ history.beer.rating|floatformat:2 }}]</li>
+                                        <li>스타일 : [{{ history.beer.style|truncatechars:12 }}]</li>
+                                        <li>아로마 : {{ history.beer.aroma |truncatechars:21 }}</li>
+                                        <li>맛 : {{ history.beer.flavor|truncatechars:21 }}</li>
+                                        <li>바디감 : {{ history.beer.body |truncatechars:21}}</li>
+                                        <li>밸런스 : {{ history.beer.balance |truncatechars:21}}</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
                         </div>
+
                     </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="container">
-                        <!--카드 앞면-->
-                        <div class="front card">
-                            <img src="https://cphoto.asiae.co.kr/listimglink/6/201107151054189109831A_2.jpg"
-                                 alt="My Image">
-                        </div>
-                        <!--모달창-->
-                        <div class="back card">
-                            <button class="btn-open-popup">Delete</button>
-                            <div class="modal">
-                                <div class="modal_body">
-                                    <div style=" font-size: 20px; padding-top: 10px;">
-                                        히스토리 삭제
-                                    </div>
-                                    <div class="modal_content"
-                                         style="font-size: 6px;
-                                                display: flex;
-                                                text-align: center;
-                                                padding-left: 65px;
-                                                padding-top: 20px;">
-                                        <h4>삭제 하시겠습니까?</h4>
-                                    </div>
-                                    <div class="btns"
-                                    style="display: flex;
-                                            padding: 25px 30px 10px 60px;">
-                                        <button class="delete_btn">삭제</button>
-                                        <button class="cancel_btn" id="cancel" onclick="openclose()"
-                                        style="margin-left: 20px;
-                                                background-color: lightgray;
-                                                outline: 0;
-                                                border: 0;
-                                                width: 50px;
-                                                cursor: pointer;">취소</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--카드 뒷면-->
-                            <div class="card__title card__title--1">
-                                <i class="fas fa-beer"></i>
-                                <h4 class="card__heading">흑맥주</h4>
-                            </div>
-
-                            <div class="card__details">
-                                <ul>
-                                    <li>1 Website</li>
-                                    <li>50 GB SSD Storage</li>
-                                    <li>Unmetered Bandwidth</li>
-                                    <li>Free SSL Certificate</li>
-                                    <li>1 Included Domain</li>
-                                    <li>1 Included Domain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
+
         </div>
+
     </section>
+
 {% endblock content %}

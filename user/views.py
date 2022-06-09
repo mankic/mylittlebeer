@@ -3,12 +3,12 @@ from .models import User
 from django.contrib.auth import get_user_model  # 사용자가 있는지 검사하는 함수
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.hashers import check_password
+
 
 
 # Create your views here.
 def user(request):
-    return render(request, 'index.html')
+    return render(request, 'recommend/index.html')
 
 
 def sign_up_view(request):
@@ -42,15 +42,15 @@ def sign_up_view(request):
 
 def sign_in_view(request):
     if request.method == 'POST':
-        email = request.POST.get('email','')
+        username = request.POST.get('username','')
         password = request.POST.get('password','')
 
-        me = auth.authenticate(request, email=email, password=password)
+        me = auth.authenticate(request, username=username, password=password)
         if me is not None:
             auth.login(request, me)
             return redirect('/')
         else:
-            return render(request, 'user/signin.html', {'error': '이메일 혹은 패스워드를 확인 해 주세요'})
+            return render(request, 'user/signin.html', {'error': '이름(아이디) 혹은 패스워드를 확인 해 주세요'})
 
     elif request.method == 'GET':
         user = request.user.is_authenticated
