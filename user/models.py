@@ -9,7 +9,6 @@ from django.contrib.auth.models import PermissionsMixin
 class User(AbstractUser):
     class Meta:
         db_table = "User"
-
     email = models.EmailField(_('email address'), unique=True)
 
     favorite_beer = models.ManyToManyField(Beer, related_name='lover')

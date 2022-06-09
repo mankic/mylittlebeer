@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/recommend.css' %}">
+    <script defer src="{% static 'js/recommend.js' %}"></script>
+{% endblock link %}
+
+{% block title %}
+    <title>My Little Beer</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="recommend_message_box">
+        <div class="recommend_title">나에게 어울리는 맥주는??!!</div>
+    </div>
+
+    <div class="beer_result_box">
+        <div class="beer_img_row">
+            <div class="beer_img_box">
+                <img src="{% get_static_prefix %}{{ beer.img_url }}"
+                     alt=""/>
+            </div>
+            <div class="beer_img_box">
+                <div>{{ beer.name }}</div>
+                <span>평점 : {{ beer.rating }}</span>
+            </div>
+        </div>
+        <div class="beer_info_row">
+            <div class="beer_info_box">
+                <div>1. 스타일 : <span>{{ beer.style }}</span></div>
+                <div>2. 카테고리 : <span>{{ beer.category }}</span></div>
+                <div>3. 향 : <span>{{ beer.aroma }}</span></div>
+                <div>4. 맛 : <span>{{ beer.flavor }}</span></div>
+                <div>5. 시즌 : <span>{{ beer.season }}</span></div>
+                <div>6. 어울리는 안주 : <span>{{ beer.paring_food }}</span></div>
+                <div>7. 목넘김 : <span>{{ beer.body }}</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="beer_btn_box">
+        <button>추천 히스토리 보러가기</button>
+        <button>맥주 종류 보러가기</button>
+    </div>
+{% endblock content %}
