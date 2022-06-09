@@ -153,7 +153,7 @@ body {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     width: 800px;
-    height: 600px;
+    height: 550px;
     position: relative;
     padding: 10px;
     margin-top: 70px;
@@ -173,17 +173,19 @@ body {
 }
 
 .modal_body{
-    background-color: orange;
-    width: 50%;
+    /*background-color: orange;*/
+    /*width: 50%;*/
     height: auto;
     float: left;
 }
 
 .modal_comment{
-    background-color: deepskyblue;
-    width: 50%;
+    /*background-color: deepskyblue;*/
+    /*width: 40%;*/
     height: auto;
     float: left;
+    margin-left: 100px;
 }
+
 
 
