@@ -35,37 +35,46 @@
                         <span class="card__status">[{{ beer.rating|floatformat:2 }}]</span>
                     </div>
                 </div>
-                <button id="modal_btn" class="card__description">comment</button>
-{#                    <button id="modal_btn" class="card__description"#}
-{#                            type="submit" value="{{ forloop.counter }}" name="beerindex">#}
-{#                        comment</button>#}
+                <button id="modal_btn" class="card__description"
+                        onclick="openModal('{{ beer.name }}','{{ beer.style }}','{{ beer.img_url }}')">
+                    detail</button>
             </div>
         </div>
     {% endfor %}
-    </div>
     {#모달#}
-    <div id="modal_open" class="modal_overlay">
-        <div class="modal_window">
-            <div class="modal_title">
-                <div class="modal_title_side"></div>
-                <div style="font-size: 20px">Detailed information - 소감을 남겨주세요!</div>
-                <div class="modal_title_side">
-                    <button id="close_modal" class="material-icons-outlined" name="close_modal">
-                        close
-                    </button>
+        <div id="modal_open" class="modal_overlay">
+            <div class="modal_window">
+                <div class="modal_title">
+                    <div class="modal_title_side"></div>
+                    <div style="font-size: 20px">Detailed information</div>
+                    <div class="modal_title_side">
+                        <button id="close_modal" class="material-icons-outlined" name="close_modal">
+                            close
+                        </button>
+                    </div>
+                </div>
+                <hr/>
+                <br>
+                <div class="modal_body" >
+                    <img id="modal_img" src="" style="width:380px; height:400px;"/>
+{#                    <div style="font-size: 20pt">#}
+{#                        <h1>맥주 상세 정보</h1>#}
+{#                        맥주 이름 :<span id="modal_name">맥주이름</span><br>#}
+{#                        스타일 :<span id="modal_style">맥주스타일</span>#}
+{#                    </div>#}
+                </div>
+                <div class="modal_comment">
+                    <h1>맥주 상세 정보</h1>
+                    <hr>
+                    <div class="modal_text" style="font-size: large">
+                        이름 : <span id="modal_name">맥주이름</span><br>
+                        스타일 : <span id="modal_style">맥주스타일</span>
+                    </div>
                 </div>
             </div>
-            <hr/>
-            <br>
-            <div class="modal_body">
-                맥주정보
-            </div>
-            <div class="modal_comment">
-                comment
-            </div>
         </div>
-    </div>
 
+    </div>
 {% endblock content %}
 
 </body>

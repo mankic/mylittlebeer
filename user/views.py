@@ -11,7 +11,7 @@ from django.db import (
 
 # Create your views here.
 def user(request):
-    return render(request, 'index.html')
+    return render(request, 'recommend/index.html')
 
 
 def sign_up_view(request):
