@@ -23,7 +23,9 @@
             </div>
             <div class="beer_img_box">
                 <div>{{ beer.name }}</div>
-                <span>평점 : {{ beer.rating }}</span>
+                <span>맥주 평점 : {{ beer.rating }}</span>
+                <br>
+                <span>유사도 점수 : {{ score }} / 56</span>
             </div>
         </div>
         <div class="beer_info_row">
@@ -39,7 +41,7 @@
         </div>
     </div>
     <div class="beer_btn_box">
-        <button>추천 히스토리 보러가기</button>
-        <button>맥주 종류 보러가기</button>
+        <button onclick="location.href='/history'">추천 히스토리 보러가기</button>
+        <button onclick="location.href='/rating'">맥주 종류 보러가기</button>
     </div>
 {% endblock content %}
