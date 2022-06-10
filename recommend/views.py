@@ -20,7 +20,7 @@ def recommend(request):
         # beer_rating_slice()
         user = request.user.is_authenticated
         if user:
-            return redirect('/recommend')
+            return render(request, 'recommend/index.html')
         else:
             return redirect('/sign-in')
     elif request.method == 'POST':
