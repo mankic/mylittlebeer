@@ -120,7 +120,7 @@ body{
 
 .card__title {
     height: 9rem;
-    padding: 3rem 1rem 1rem;
+    padding: 30px 50px 0 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -136,16 +136,12 @@ body{
     align-items: center;
 }
 
-/*.card__title--1 .fas {*/
-/*    font-size: 5rem;*/
-/*    padding-left: 50px;*/
-/*}*/
-
 .card__heading {
     font-size: 1.5rem;
     font-weight: 200;
     text-transform: uppercase;
-    text-align: center;
+    left: 20px;
+    /*text-align: center;*/
     /*padding-left: 20px;*/
     color: #fff;
     width: 100%;
