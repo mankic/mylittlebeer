@@ -36,7 +36,16 @@
                     </div>
                 </div>
                 <button id="modal_btn" class="card__description"
-                        onclick="openModal('{{ beer.name }}','{{ beer.style }}','{{ beer.img_url }}')">
+                        onclick="openModal(
+                            '{{ beer.img_url }}',
+                            '{{ beer.name }}',
+                            '{{ beer.style }}',
+                            '{{ beer.category }}',
+                            '{{ beer.aroma|escapejs }}',
+                            '{{ beer.flavor|escapejs }}',
+                            '{{ beer.balance|escapejs }}',
+                            '{{ beer.season|escapejs }}',
+                            '{{ beer.body|escapejs }}',)">
                     detail</button>
             </div>
         </div>
@@ -46,7 +55,7 @@
             <div class="modal_window">
                 <div class="modal_title">
                     <div class="modal_title_side"></div>
-                    <div style="font-size: 20px">Detailed information</div>
+                    <div style="font-size: 20px">Detailed</div>
                     <div class="modal_title_side">
                         <button id="close_modal" class="material-icons-outlined" name="close_modal">
                             close
@@ -56,7 +65,7 @@
                 <hr/>
                 <br>
                 <div class="modal_body" >
-                    <img id="modal_img" src="" style="width:380px; height:400px;"/>
+                    <img id="beer_img" src="" style="width:380px; height:400px;"/>
 {#                    <div style="font-size: 20pt">#}
 {#                        <h1>맥주 상세 정보</h1>#}
 {#                        맥주 이름 :<span id="modal_name">맥주이름</span><br>#}
@@ -64,11 +73,17 @@
 {#                    </div>#}
                 </div>
                 <div class="modal_comment">
-                    <h1>맥주 상세 정보</h1>
+                    <h1>Information</h1>
                     <hr>
                     <div class="modal_text" style="font-size: large">
-                        이름 : <span id="modal_name">맥주이름</span><br>
-                        스타일 : <span id="modal_style">맥주스타일</span>
+                        beer : <span id="beer_name">맥주이름</span><br>
+                        style : <span id="beer_style">맥주스타일</span><br>
+                        category : <span id="beer_category">맥주카테고리</span><br>
+                        aroma : <span id="beer_aroma">맥주향</span><br>
+                        flavor : <span id="beer_flavor">맥주맛</span><br>
+                        balance : <span id="beer_balance">맥주balance</span><br>
+                        season : <span id="beer_season">맥주계절</span><br>
+                        body : <span id="beer_body">맥주body</span><br>
                     </div>
                 </div>
             </div>
