@@ -2,8 +2,7 @@
 const modal = document.getElementById('modal_open');
 
 // 모달 창 열기
-function openModal(name,style,url) {
-    // console.log(name)
+function openModal(url,name,style,category,aroma,flavor,balance,season,body) {
 
     $(".modal_overlay").fadeIn();
     modal.style.display = 'flex';
@@ -12,16 +11,22 @@ function openModal(name,style,url) {
     //팝업창을 가운데로 띄우기 위해 현재 화면의 가운데 값과 스크롤 값을 계산하여 팝업창 CSS 설정
     $(".modal_overlay").css({
         "top": (($(window).height()-$(".modal_overlay").outerHeight())/2+$(window).scrollTop())+"px",
-        "left": (($(window).width()-$(".modal_overlay").outerWidth())/2+$(window).scrollLeft())+"px"
+        "left": (($(window).width(2000)-$(".modal_overlay").outerWidth())/2+$(window).scrollLeft())+"px"
      });
 
     // 이미지 변경 : `{% static ${url} %}` 사용하면 html에서 받을때 절대경로로 /rating/이 자동으로 붙어 가져올수없음
     // 상대 경로 ../ 사용
-    document.getElementById('modal_img').src = `../static/${url}`;
+    document.getElementById('beer_img').src = `../static/${url}`;
 
     // 모달 텍스트 변경
-    document.getElementById('modal_name').textContent = name;
-    document.getElementById('modal_style').textContent = style;
+    document.getElementById('beer_name').textContent = name;
+    document.getElementById('beer_style').textContent = style;
+    document.getElementById('beer_category').textContent = category;
+    document.getElementById('beer_aroma').textContent = aroma;
+    document.getElementById('beer_flavor').textContent = flavor;
+    document.getElementById('beer_balance').textContent = balance;
+    document.getElementById('beer_season').textContent = season;
+    document.getElementById('beer_body').textContent = body;
     // beer_info = document.getElementById('modal_info').textContent=name;
     // beer_id = document.createTextNode(id);
     // beer_info.appendChild(beer_id);
