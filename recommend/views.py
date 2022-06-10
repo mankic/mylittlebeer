@@ -8,7 +8,6 @@ from history.models import History
 def home(request):
     if request.method == 'GET':
         user = request.user.is_authenticated
-
         if user:
             return redirect('/recommend')
         else:
@@ -17,7 +16,13 @@ def home(request):
 
 def recommend(request):
     if request.method == 'GET':
-        return render(request, 'recommend/index.html')
+        # create_db_beer()
+        # beer_rating_slice()
+        user = request.user.is_authenticated
+        if user:
+            return redirect('/recommend')
+        else:
+            return redirect('/sign-in')
     elif request.method == 'POST':
         style = request.POST.get('style', '')
         category = request.POST.get('category', '')
