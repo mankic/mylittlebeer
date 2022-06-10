@@ -1,5 +1,6 @@
 # 맥주 추천 관련 함수 파일
 from beer.models import Beer
+import csv
 
 
 # 문자열 형태의 맥주 특징을 리스트 형태로 파싱하는 함수
@@ -55,3 +56,34 @@ def find_favorite_beer(user_beer):
     max_beer = max(scores, key=scores.get)
 
     return max_beer, scores[max_beer]
+
+
+# beer db 생성 함수
+def create_db_beer():
+    path = "static/맥주_cbf_data.csv"
+    file = open(path, encoding='UTF-8')
+    reader = csv.reader(file)
+    for i, row in enumerate(reader):
+        if i > 0:
+            Beer.objects.create(
+                name=row[3],
+                style=row[4],
+                category=row[5],
+                aroma=row[6],
+                flavor=row[7],
+                balance=row[8],
+                season=row[9],
+                paring_food=row[10],
+                body=row[11],
+                rating=row[12],
+                img_url=f'images/beer/{row[3]}.png'
+            )
+    print('Beer DB data created.')
+
+
+# beer rating 소수점 자르는 함수
+def beer_rating_slice():
+    beers = Beer.objects.all()
+    for beer in beers:
+        beer.rating = round(beer.rating, 2)
+        beer.save()
