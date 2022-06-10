@@ -45,9 +45,11 @@
         </div>
         <!--        유저정보-->
         <div class="user_info">
-            <span style="font-weight: bold" id="user_name">김동우</span> <br/>
-            <span id="user_email">kimphysicsman@gmail.com</span> <br/>
-            <button id="logout_btn">로그아웃</button>
+            <span style="font-weight: bold" id="user_name">{{ user.username }}</span> <br/>
+            <span id="user_email">{{ user.email }}</span> <br/>
+            <button id="logout_btn" onclick="location.href='/logout'">로그아웃</button>
+            <button id="logout_btn" onclick="location.href='/update'">회원 수정</button>
+            <button id="logout_btn" onclick="location.href='/delete'">회원 탈퇴</button>
         </div>
     </div>
 </div>

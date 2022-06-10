@@ -26,7 +26,7 @@ def jaccard_similarity(list_1, list_2):
 
 # 입력받은 맥주 특성과 유사도가 비슷한 맥주를 찾는 함수
 # user_beer : 유저가 선호하는 맥주 특징
-# return : 가장 유사도가 높은 맥주
+# return : 가장 유사도가 높은 맥주, 유사도
 def find_favorite_beer(user_beer):
     features = ['style', 'category', 'aroma', 'flavor', 'season', 'paring_food', 'body']
     base_beer = user_beer
@@ -54,4 +54,4 @@ def find_favorite_beer(user_beer):
 
     max_beer = max(scores, key=scores.get)
 
-    return max_beer
+    return max_beer, scores[max_beer]
