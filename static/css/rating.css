@@ -152,7 +152,7 @@ body {
     -webkit-backdrop-filter: blur(13.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 800px;
+    width: 1100px;
     height: 550px;
     position: relative;
     padding: 10px;
@@ -181,7 +181,7 @@ body {
 
 .modal_comment{
     /*background-color: deepskyblue;*/
-    /*width: 40%;*/
+    width: auto;
     height: auto;
     float: left;
     margin-left: 100px;
