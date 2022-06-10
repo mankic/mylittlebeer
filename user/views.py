@@ -3,10 +3,7 @@ from .models import User
 from django.contrib.auth import get_user_model  # 사용자가 있는지 검사하는 함수
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.db.models.deletion import Collector
-from django.db import (
-    router,
-)
+
 
 
 # Create your views here.
@@ -40,7 +37,9 @@ def sign_up_view(request):
             if exist_user:
                 return render(request, 'user/signup.html', {'error':'사용자가 존재합니다'})  # 사용자가 존재하기 때문에 사용자를 저장하지 않고 회원가입 페이지를 다시 띄움
             elif exist_email:
-                return render(request, 'user/signup.html', {'error':'이메일이 존재합니다'})  # 이메일이 존재하기 때문에 사용자를 저장하지 않고 회원가입 페이지를 다시 띄움
+                return render(request, 'user/signup.html',
+                              {'error': '이메일이 존재합니다'})  # 이메일이 존재하기 때문에 사용자를 저장하지 않고 회원가입 페이지를 다시 띄움
+
             else:
                 User.objects.create_user(username=username, password=password, email=email)
                 return redirect('/sign-in')
@@ -87,8 +86,9 @@ def delete(request):
             user.delete()
             return render(request,"user/signin.html")
         else:
-            raise Exception("잘못된 비밀번호를 입력했습니다.")
-            return redirect('/user')
+            return render(request, 'user/user_delete.html',
+                          {'error': '비밀번호가 일치하지않습니다'})
+
 
 @login_required()
 def update(request):
@@ -98,14 +98,25 @@ def update(request):
 
     elif request.method == 'POST':
         user = request.user
-
-
         email = request.POST.get("email", "")
-
-
-
         user.email = email
-        user.save()
+        password = request.POST.get("password", "")
+        if '' or password == '' or email == '':
+            return render(request, 'user/user_update.html', {'error': '빈칸을 채워주세요!'})
+        elif user.check_password(password):
+            if '@' not in email or '.' not in email:
+                return render(request, 'user/user_update.html', {'error': '이메일 형식을 확인해주세요!'})
+            else:
+                exist_email = get_user_model().objects.filter(email=email)
+                if exist_email:
+                    return render(request, 'user/user_update.html',
+                                  {'error': '이메일이 존재합니다'})  # 이메일이 존재하기 때문에 사용자를 저장하지 않고 회원수정 페이지를 다시 띄움
+                else:
+                    user.save()
+        else:
+            return render(request, 'user/user_update.html',
+                          {'error': '비밀번호가 일치하지않습니다'})
+
 
     return redirect('/recommend')
 
