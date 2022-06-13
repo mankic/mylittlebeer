@@ -3,7 +3,7 @@ from .models import User
 from django.contrib.auth import get_user_model  # 사용자가 있는지 검사하는 함수
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -11,6 +11,7 @@ def user(request):
     return render(request, 'recommend/index.html')
 
 
+@csrf_exempt
 def sign_up_view(request):
     if request.method == 'GET':
         user = request.user.is_authenticated
@@ -44,6 +45,8 @@ def sign_up_view(request):
                 User.objects.create_user(username=username, password=password, email=email)
                 return redirect('/sign-in')
 
+
+@csrf_exempt
 def sign_in_view(request):
     if request.method == 'POST':
         username = request.POST.get('username', '')
@@ -72,8 +75,7 @@ def logout(request):
 
 
 
-
-
+@csrf_exempt
 @login_required()
 def delete(request):
     if request.method == 'GET':
@@ -90,9 +92,9 @@ def delete(request):
                           {'error': '비밀번호가 일치하지않습니다'})
 
 
+@csrf_exempt
 @login_required()
 def update(request):
-
     if request.method == 'GET':
         return render(request, 'user/user_update.html')
 

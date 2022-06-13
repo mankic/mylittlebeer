@@ -3,6 +3,7 @@ from .functions import *
 from beer.models import Beer
 from user.models import User
 from history.models import History
+from django.views.decorators.csrf import csrf_exempt
 
 
 def home(request):
@@ -14,6 +15,7 @@ def home(request):
             return redirect('/sign-in')
 
 
+@csrf_exempt
 def recommend(request):
     if request.method == 'GET':
         # create_db_beer()
