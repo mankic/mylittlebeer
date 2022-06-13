@@ -127,6 +127,11 @@ body {
   overflow: hidden;
 }
 
+.modal_btn {
+    border: none;
+    outline: none;
+}
+
 /*모달*/
 .modal_overlay {
     width: 100%;
@@ -186,6 +191,4 @@ body {
     float: left;
     margin-left: 100px;
 }
-
-
 

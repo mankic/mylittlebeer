@@ -1,11 +1,14 @@
-
+//모달 html div id 를 변수에 저장
 const modal = document.getElementById('modal_open');
 
-// 모달 창 열기
+// 모달 창 열기 // onclick 으로 openModal() 함수 실행하며 받은 인자들 ( django views에서 받은 값들이 들어있다.)
 function openModal(url,name,style,category,aroma,flavor,balance,season,body) {
 
+    // class명으로 쓰는 이유는 여러개의 모달이 존재해서 하나의 id로 열 수 없기 때문
     $(".modal_overlay").fadeIn();
+    // 모달의 display 속성 변경해주기
     modal.style.display = 'flex';
+    // 모달 열리면서 스크롤 막기
     document.body.style.overflowY = 'hidden';
 
     //팝업창을 가운데로 띄우기 위해 현재 화면의 가운데 값과 스크롤 값을 계산하여 팝업창 CSS 설정
