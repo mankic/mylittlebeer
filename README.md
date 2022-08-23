@@ -15,9 +15,9 @@
 > |                    Name                    |  Position   |
 > | :----------------------------------------: | :---------: |
 > | [김동우](https://github.com/kimphysicsman) | Back, Front |
-> |   [김진수](https://github.com/creamone)    |    Back     |
-> |     [이윤지](https://github.com/yunji3)     |    Back     |
-> |    [최민기](https://github.com/mankic)     |    Back     |
+> |   [김진수](https://github.com/creamone)    | Back, Front |
+> |     [이윤지](https://github.com/yunji3)    | Back, Front |
+> |    [최민기](https://github.com/mankic)     | Back, Front |
 
 ### 3. 역할 분담
 
@@ -38,6 +38,8 @@
 ### 2. Front-end
   
 > Javascript
+> html
+> css
 
 <br />
 
