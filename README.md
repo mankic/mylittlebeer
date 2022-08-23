@@ -90,13 +90,11 @@
 
 <table>
   <tbody>
-    <tr>
       <td>
         <p align="center"> 22.08.05 발표 </p>
         <a href="https://www.youtube.com/watch?v=FcY93t-2oMI" title="MyLittleBeer 최종발표">
           <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
         </a>
       </td>
-    </tr>
   </tbody>
 </table>
