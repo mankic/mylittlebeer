@@ -63,7 +63,7 @@
 
 # 🔑 핵심기능
 
-### 1. 여행장소 검색
+### 1. 로그인 / 회원 가입 / 회원 수정 / 회원 탈퇴
 
 > 사용자가 여행장소를 검색하면 DB에서 여행장소를 검색하고  
 > DB에 없는 장소이면 네이버지도에서 검색하여 최상단의 장소의 정보를 가져오고 DB에 저장합니다.  
@@ -80,11 +80,11 @@
 
 ### 1. 기획문서
 
-> [MyLittleTrip - Notion](https://www.notion.so/kimphysicsman/MLT-My-Little-Trip-716433a2fc8940d9870bd83b63570646?v=0c42e849923d4449aade69046bf597d1)
+> [MyLittleBeer - Notion](https://www.notion.so/kimphysicsman/MLB-MyLittleBeer-3c4edfa70eb24593ab1cc9b05f8e6e61)
 
-### 2. 여행추천 알고리즘
+### 2. 데이터셋 77종류의 맥주 정보
 
-> [Travel_recommedation - Github](https://github.com/kimphysicsman/Travel_recommedation)
+> [Beer_dataset - Github](https://github.com/ghgit1798/Crawling-Preprocessing/blob/main/CBF_Beer/%EB%A7%A5%EC%A3%BC_cbf_data.csv)
 
 ### 3. 발표영상
 
@@ -93,13 +93,7 @@
     <tr>
       <td>
         <p align="center"> 22.08.05 발표 </p>
-        <a href="https://www.youtube.com/watch?v=6B0DSjvsqj0&t=1s" title="MyLittleTrip 중간발표">
-          <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
-        </a>
-      </td>
-      <td>
-        <p align="center"> 22.08.16 발표 </p>
-        <a href="https://youtu.be/9eoYpRqTZUU" title="MyLittleTrip 최종발표">
+        <a href="https://www.youtube.com/watch?v=FcY93t-2oMI" title="MyLittleBeer 최종발표">
           <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
         </a>
       </td>
