@@ -1,44 +1,108 @@
-# mylittlebeer
-<h1> 장고를 이용한 맥주 추천 시스템 </h1>
+# 🛫 MyLittelTrip
 
+맥주 추천 웹서비스  
 
-### 프로젝트 명
+<br />
 
-MLB - My Little Beer : 맥주 추천 웹서비스 
+# 📃 프로젝트 정보
 
-### 기간
+### 1. 제작기간
 
-2022.06.02-13
+> 2022.06.02 ~ 06.13
 
-### 프로젝트 목표
+### 2. 참여 인원
 
-1. django를 이용한 프로젝트 만들기
-2. 추천시스템 적용시켜보기
-3. CRUD 숙련
+> |                    Name                    |  Position   |
+> | :----------------------------------------: | :---------: |
+> | [김동우](https://github.com/kimphysicsman) | Back, Front |
+> |   [김진수](https://github.com/creamone)    |    Back     |
+> |     [이윤지](https://github.com/yunji3)     |    Back     |
+> |    [최민기](https://github.com/mankic)     |    Back     |
 
-### 팀 정보
+### 3. 역할 분담
 
-- 팀명 : 판타스틱4
-- 팀원 : 김동우, 김진수, 최민기, 이윤지
+> - 김동우 : 사용자가 선호하는 맥주 특징을 고르면 그것과 비슷한 유형의 맥주를 추천 (저장가능)
+> - 김진수 : 로그인 / 회원가입 / 회원수정 / 회원탈퇴
+> - 이윤지 : 저장된 추천 받은 검색 기록 리스팅 / 삭제 페이지
+> - 최민기 : 맥주 정보를 볼 수 있는 리스팅 페이지 (조건을 걸어서 종류별로 리스팅할 수 있게)
 
-### 역할 분담
+<br />
 
-김동우 : 사용자가 선호하는 맥주 특징을 고르면 그것과 비슷한 유형의 맥주를 추천 (저장가능)
+# 📚 기술 스택
 
-김진수 : 로그인 / 회원가입 / 회원수정 / 회원탈퇴
+### 1. Back-end
 
-이윤지 : 저장된 추천 받은 검색 기록 리스팅 / 삭제 페이지
+> python3  
+> Django  
 
-최민기 : 맥주 정보를 볼 수 있는 리스팅 페이지 (조건을 걸어서 종류별로 리스팅할 수 있게)
+### 2. Front-end
+  
+> Javascript
 
-### 데이터셋
+<br />
 
-77종류의 맥주 정보
+# 📊 ERD & Structure
 
-[맥주_cbf_data.csv](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a50dae48-6c59-4672-a546-dd35851f2697/맥주_cbf_data.csv)
+<details>
+<summary>ERD</summary>
+<div markdown="1" style="padding-left: 15px;">
+<img src="https://user-images.githubusercontent.com/68724828/186067947-f255f9a4-d92d-45cd-ab7c-419ec92943f8.png" width="800px"/>
+</div>
+</details>
 
-[Crawling-Preprocessing/맥주_cbf_data.csv at main · ghgit1798/Crawling-Preprocessing](https://github.com/ghgit1798/Crawling-Preprocessing/blob/main/CBF_Beer/%EB%A7%A5%EC%A3%BC_cbf_data.csv)
+<br />
 
-### 추천 알고리즘
+<details>
+<summary>Structure</summary>
+<div markdown="1" style="padding-left: 15px;">
+<img src="https://user-images.githubusercontent.com/68724828/186079270-28793ba1-466e-421f-baf2-563b890c926f.png" />
+</div>
+</details>
 
-[Google Colaboratory](https://colab.research.google.com/drive/1eaEzktpnYVwAdhBeXs2LBt0xSENqSdtl#scrollTo=xdFp-9f7VGnn)
+<br />
+
+# 🔑 핵심기능
+
+### 1. 여행장소 검색
+
+> 사용자가 여행장소를 검색하면 DB에서 여행장소를 검색하고  
+> DB에 없는 장소이면 네이버지도에서 검색하여 최상단의 장소의 정보를 가져오고 DB에 저장합니다.  
+> [코드 보러가기](https://github.com/nbcamp-AI-2-fantastic4/MyLittelTrip_backend/blob/d9eba0efc4567cbaef9ec19eea76e76495190a69/recommend/functions/parsing.py#L70)
+
+### 2. 최단 여행경로 찾기 & 여행일정 만들기
+
+> 사용자가 입력한 여행장소들을 바탕으로 여행일정을 만듭니다.  
+> [코드 보러가기](https://github.com/nbcamp-AI-2-fantastic4/MyLittelTrip_backend/blob/d9eba0efc4567cbaef9ec19eea76e76495190a69/recommend/functions/schedule.py#L14)
+
+<br />
+
+# 📕 기타 자료
+
+### 1. 기획문서
+
+> [MyLittleTrip - Notion](https://www.notion.so/kimphysicsman/MLT-My-Little-Trip-716433a2fc8940d9870bd83b63570646?v=0c42e849923d4449aade69046bf597d1)
+
+### 2. 여행추천 알고리즘
+
+> [Travel_recommedation - Github](https://github.com/kimphysicsman/Travel_recommedation)
+
+### 3. 발표영상
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <p align="center"> 22.08.05 발표 </p>
+        <a href="https://www.youtube.com/watch?v=6B0DSjvsqj0&t=1s" title="MyLittleTrip 중간발표">
+          <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
+        </a>
+      </td>
+      <td>
+        <p align="center"> 22.08.16 발표 </p>
+        <a href="https://youtu.be/9eoYpRqTZUU" title="MyLittleTrip 최종발표">
+          <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
