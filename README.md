@@ -1,4 +1,4 @@
-# 🛫 MyLittelTrip
+# 🍻 MyLittleBeer
 
 맥주 추천 웹서비스  
 
