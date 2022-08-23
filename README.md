@@ -32,14 +32,14 @@
 
 ### 1. Back-end
 
-> python3  
+> Python3  
 > Django  
 
 ### 2. Front-end
   
 > Javascript  
-> html  
-> css  
+> Html  
+> Css  
 
 <br />
 
@@ -85,7 +85,12 @@
 
 > [Beer_dataset - Github](https://github.com/ghgit1798/Crawling-Preprocessing/blob/main/CBF_Beer/%EB%A7%A5%EC%A3%BC_cbf_data.csv)
 
-### 3. 발표영상
+
+### 3. 추천 알고리즘
+
+> [recommend_algorithm](https://colab.research.google.com/drive/1eaEzktpnYVwAdhBeXs2LBt0xSENqSdtl#scrollTo=xdFp-9f7VGnn)
+
+### 4. 발표영상
 
 <table>
   <tbody>
