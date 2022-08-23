@@ -37,9 +37,9 @@
 
 ### 2. Front-end
   
-> Javascript
-> html
-> css
+> Javascript  
+> html  
+> css  
 
 <br />
 
