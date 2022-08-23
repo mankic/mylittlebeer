@@ -41,25 +41,17 @@
 
 <br />
 
-# 📊 ERD & Structure
+# 📊 ERD
 
 <details>
 <summary>ERD</summary>
 <div markdown="1" style="padding-left: 15px;">
-<img src="https://user-images.githubusercontent.com/68724828/186067947-f255f9a4-d92d-45cd-ab7c-419ec92943f8.png" width="800px"/>
+<img src="https://user-images.githubusercontent.com/52207954/186103086-b7e62343-69bb-46bb-af76-a888db74c8ef.png" width="800px"/>
 </div>
 </details>
 
 <br />
 
-<details>
-<summary>Structure</summary>
-<div markdown="1" style="padding-left: 15px;">
-<img src="https://user-images.githubusercontent.com/68724828/186079270-28793ba1-466e-421f-baf2-563b890c926f.png" />
-</div>
-</details>
-
-<br />
 
 # 🔑 핵심기능
 
@@ -98,7 +90,7 @@
       <td>
         <p align="center"> 22.08.05 발표 </p>
         <a href="https://www.youtube.com/watch?v=FcY93t-2oMI" title="MyLittleBeer 최종발표">
-          <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
+          <img align="center" src="https://user-images.githubusercontent.com/52207954/186103974-c47141f0-3084-4bbc-92c3-ec8f05fca9a6.png" width="300" >
         </a>
       </td>
   </tbody>
