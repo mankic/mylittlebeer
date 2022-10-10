@@ -1,0 +1,84 @@
+.register_form {
+    width: 300px;
+    height: 400px;
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*position: relative;*/
+    /*text-align: center;*/
+    /*!*cursor: pointer;*!*/
+    /*perspective: 100rem;*/
+    /*!*display: inline-block;*!*/
+    /*float: left;*/
+    /*clear: both;*/
+
+
+}
+.register_div{
+    width:100%;
+    height: 1071px;
+    background-image: url("../images/user/backgroundbeer.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white;
+
+
+}
+
+/*register 네온*/
+@font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.header .header_body .container {
+    width: 50%;
+    height: 100%;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.neon {
+    font-family: neon;
+    color: #F6CD01;
+    font-size: 60px;
+    line-height: 60px;
+    text-shadow: 0 0 3vw lightcoral;
+}
+
+.neon {
+    animation: neon 1s ease infinite;
+    -moz-animation: neon 1s ease infinite;
+    -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw white, 0 0 3vw white, 0 0 10vw white, 0 0 10vw white, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+        color: #FED128;
+    }
+}
+
+/*로고이미지 크기조정*/
+
+.logo_style{
+    width:200px;
+    height:200px;
+    position: absolute;
+     left: 45%;
+    top:10%;
+
+}
+
+* {
+  font-family: "Nanum Gothic", sans-serif;
+    font-size: 40.5%;
+}
+/*네온 글씨체 사라지게하기!*/
+.form-control{
+    font-family:"Nanum Gothic";
+}
